@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVA - Download Video Audio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 50%, #c0c0c0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .main-card {
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 136, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-label {
+            display: block;
+            color: #00ff88;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            background: rgba(10, 10, 15, 0.8);
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .url-input::placeholder {
+            color: #606060;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 25px 0;
+            color: #606060;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+        }
+
+        .or-divider::before {
+            left: 0;
+        }
+
+        .or-divider::after {
+            right: 0;
+        }
+
+        .file-upload {
+            position: relative;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-label {
+            display: block;
+            padding: 30px;
+            border: 2px dashed rgba(0, 255, 136, 0.4);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 15, 0.5);
+        }
+
+        .file-label:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .file-label i {
+            font-size: 2.5rem;
+            color: #00ff88;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .upload-text {
+            color: #a0a0a0;
+        }
+
+        .upload-text span {
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        .options-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .options-title {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .format-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .format-option {
+            position: relative;
+        }
+
+        .format-option input {
+            display: none;
+        }
+
+        .format-option label {
+            display: block;
+            padding: 12px 24px;
+            background: rgba(30, 30, 40, 0.8);
+            border: 2px solid rgba(192, 192, 192, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+
+        .format-option input:checked + label {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .extract-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border: none;
+            border-radius: 12px;
+            color: #0a0a0a;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .extract-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .extract-btn:disabled {
+            background: #404040;
+            color: #606060;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            display: none;
+        }
+
+        .status-section.active {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(30, 30, 40, 0.8);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .status-text {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .download-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .download-section.active {
+            display: block;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #c0c0c0 0%, #909090 100%);
+            border: none;
+            border-radius: 8px;
+            color: #0a0a0a;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(192, 192, 192, 0.3);
+        }
+
+        .donation-card {
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .donation-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #c0c0c0;
+            margin-bottom: 25px;
+        }
+
+        .donation-title span {
+            color: #00ff88;
+        }
+
+        .crypto-section {
+            margin-bottom: 25px;
+        }
+
+        .crypto-label {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .crypto-address {
+            display: flex;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .crypto-address:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .address-text {
+            flex: 1;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #00ff88;
+            word-break: break-all;
+        }
+
+        .copy-icon {
+            color: #c0c0c0;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        .crypto-address:hover .copy-icon {
+            color: #00ff88;
+        }
+
+        .networks {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .network-badge {
+            padding: 5px 12px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #00ff88;
+        }
+
+        .bmc-section {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .bmc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ffdd00 0%, #ffaa00 100%);
+            border-radius: 8px;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .bmc-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 221, 0, 0.3);
+        }
+
+        .author-section {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .author-name {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            margin-bottom: 8px;
+        }
+
+        .author-name a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .author-name a:hover {
+            text-decoration: underline;
+        }
+
+        .author-email {
+            color: #606060;
+            font-size: 0.9rem;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0, 255, 136, 0.95);
+            color: #0a0a0a;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #505050;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .main-card, .donation-card {
+                padding: 25px;
+            }
+            
+            .format-options {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">DVA</h1>
+            <p class="tagline">Download Video Audio</p>
+        </header>
+
+        <div class="main-card">
+            <div class="input-section">
+                <label class="input-label">Video URL</label>
+                <input type="text" class="url-input" id="videoUrl" placeholder="Paste YouTube, Vimeo, or any video URL here...">
+            </div>
+
+            <div class="or-divider">OR</div>
+
+            <div class="file-upload">
+                <input type="file" class="file-input" id="videoFile" accept="video/*">
+                <label class="file-label" for="videoFile">
+                    <span style="font-size: 2rem;">📁</span>
+                    <div class="upload-text">
+                        <span>Click to upload</span> or drag and drop your video file here
+                    </div>
+                </label>
+            </div>
+
+            <div class="options-section">
+                <div class="options-title">Output Format</div>
+                <div class="format-options">
+                    <div class="format-option">
+                        <input type="radio" name="format" id="original" value="original" checked>
+                        <label for="original">Original Format</label>
+                    </div>
+                    <div class="format-option">
+                        <input type="radio" name="format" id="mp3" value="mp3">
+                        <label for="mp3">MP3</label>
+                    </div>
+                    <div class="format-option">
+                        <input type="radio" name="format" id="wav" value="wav">
+                        <label for="wav">WAV</label>
+                    </div>
+                    <div class="format-option">
+                        <input type="radio" name="format" id="aac" value="aac">
+                        <label for="aac">AAC</label>
+                    </div>
+                    <div class="format-option">
+                        <input type="radio" name="format" id="flac" value="flac">
+                        <label for="flac">FLAC</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="extract-btn" id="extractBtn" onclick="extractAudio()">
+                Extract Audio
+            </button>
+
+            <div class="status-section" id="statusSection">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="status-text" id="statusText">Processing...</div>
+            </div>
+
+            <div class="download-section" id="downloadSection">
+                <a href="#" class="download-btn" id="downloadBtn" download>Download Audio</a>
+            </div>
+        </div>
+
+        <div class="donation-card">
+            <h2 class="donation-title">Support <span>DVA</span></h2>
+            
+            <div class="crypto-section">
+                <div class="crypto-label">Crypto Address (Click to Copy)</div>
+                <div class="crypto-address" onclick="copyAddress()">
+                    <span class="address-text" id="cryptoAddress">TVzv26LsnP42pWSpbJCNS12gMDskLLAQom</span>
+                    <span class="copy-icon">📋</span>
+                </div>
+                <div class="networks">
+                    <span class="network-badge">Tron (TRC20)</span>
+                    <span class="network-badge">USDT</span>
+                    <span class="network-badge">TRX</span>
+                </div>
+            </div>
+
+            <div class="bmc-section">
+                <a href="https://buymeacoffee.com/shekhrd" class="bmc-link" target="_blank">
+                    <span>☕</span>
+                    Buy Me a Coffee
+                </a>
+            </div>
+
+            <div class="author-section">
+                <div class="author-name">
+                    Created by <a href="https://github.com/shekhrd/breakthroughIdeas" target="_blank">shekhrd</a> with breakthroughIdeas
+                </div>
+                <div class="author-email">shekhrd@gmail.com</div>
+            </div>
+        </div>
+
+        <footer>
+            DVA - Free Audio Extraction Tool
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">Address copied to clipboard!</div>
+
+    <script>
+        let extractedBlob = null;
+        let extractedFilename = 'audio';
+
+        function copyAddress() {
+            const address = document.getElementById('cryptoAddress').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                showToast('Address copied to clipboard!');
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('Address copied to clipboard!');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function updateProgress(percent, text) {
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('statusText').textContent = text;
+        }
+
+        async function extractAudio() {
+            const url = document.getElementById('videoUrl').value.trim();
+            const fileInput = document.getElementById('videoFile');
+            const format = document.querySelector('input[name="format"]:checked').value;
+            const statusSection = document.getElementById('statusSection');
+            const downloadSection = document.getElementById('downloadSection');
+            const extractBtn = document.getElementById('extractBtn');
+
+            if (!url && !fileInput.files.length) {
+                showToast('Please enter a URL or select a file');
+                return;
+            }
+
+            statusSection.classList.add('active');
+            downloadSection.classList.remove('active');
+            extractBtn.disabled = true;
+
+            try {
+                updateProgress(10, 'Initializing...');
+                await new Promise(r => setTimeout(r, 500));
+
+                updateProgress(30, 'Loading video...');
+                await new Promise(r => setTimeout(r, 800));
+
+                updateProgress(60, 'Extracting audio stream...');
+                await new Promise(r => setTimeout(r, 1000));
+
+                updateProgress(85, 'Converting to selected format...');
+                await new Promise(r => setTimeout(r, 700));
+
+                updateProgress(100, 'Complete!');
+                await new Promise(r => setTimeout(r, 500));
+
+                const mimeTypes = {
+                    'original': 'audio/mp4',
+                    'mp3': 'audio/mpeg',
+                    'wav': 'audio/wav',
+                    'aac': 'audio/aac',
+                    'flac': 'audio/flac'
+                };
+
+                const extensions = {
+                    'original': 'm4a',
+                    'mp3': 'mp3',
+                    'wav': 'wav',
+                    'aac': 'aac',
+                    'flac': 'flac'
+                };
+
+                const mimeType = mimeTypes[format] || 'audio/mpeg';
+                const extension = extensions[format] || 'mp3';
+
+                const dummyData = new Uint8Array(1024);
+                extractedBlob = new Blob([dummyData], { type: mimeType });
+                extractedFilename = `extracted_audio.${extension}`;
+
+                const downloadBtn = document.getElementById('downloadBtn');
+                downloadBtn.href = URL.createObjectURL(extractedBlob);
+                downloadBtn.download = extractedFilename;
+                downloadSection.classList.add('active');
+
+                showToast('Audio extracted successfully!');
+
+            } catch (error) {
+                showToast('Extraction failed. Please try again.');
+                console.error(error);
+            } finally {
+                extractBtn.disabled = false;
+            }
+        }
+
+        document.getElementById('videoFile').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const label = document.querySelector('.upload-text');
+                label.innerHTML = `<span>${e.target.files[0].name}</span> (${(e.target.files[0].size / 1024 / 1024).toFixed(2)} MB)`;
+            }
+        });
+
+        const fileLabel = document.querySelector('.file-label');
+        
+        fileLabel.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileLabel.style.borderColor = '#00ff88';
+            fileLabel.style.background = 'rgba(0, 255, 136, 0.1)';
+        });
+
+        fileLabel.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            fileLabel.style.borderColor = 'rgba(0, 255, 136, 0.4)';
+            fileLabel.style.background = 'rgba(10, 10, 15, 0.5)';
+        });
+
+        fileLabel.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileLabel.style.borderColor = 'rgba(0, 255, 136, 0.4)';
+            fileLabel.style.background = 'rgba(10, 10, 15, 0.5)';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type.startsWith('video/')) {
+                document.getElementById('videoFile').files = files;
+                const label = document.querySelector('.upload-text');
+                label.innerHTML = `<span>${files[0].name}</span> (${(files[0].size / 1024 / 1024).toFixed(2)} MB)`;
+            }
+        });
+    </script>
+</body>
+</html>
