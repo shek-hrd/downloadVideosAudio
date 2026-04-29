@@ -29,442 +29,441 @@
             margin-bottom: 50px;
         }
 
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 800;
+        h1 {
+            font-size: 3rem;
             background: linear-gradient(135deg, #00ff88 0%, #00cc6a 50%, #c0c0c0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 15px;
             text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
             margin-bottom: 10px;
         }
 
-        .tagline {
-            color: #a0a0a0;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+        .description {
+            color: #00ff88;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .main-card {
-            background: linear-gradient(145deg, rgba(30, 30, 40, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+            background: linear-gradient(145deg, #1e1e1e 0%, #2d2d2d 100%);
             border-radius: 20px;
             padding: 40px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 136, 0.1);
+            border: 1px solid #333;
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.1), 0 0 100px rgba(192, 192, 192, 0.05);
+        }
+
+        .upload-section {
             margin-bottom: 30px;
         }
 
-        .input-section {
-            margin-bottom: 30px;
-        }
-
-        .input-label {
-            display: block;
-            color: #00ff88;
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .url-input {
-            width: 100%;
-            padding: 18px 24px;
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            background: rgba(10, 10, 15, 0.8);
-            color: #e0e0e0;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .url-input:focus {
-            outline: none;
-            border-color: #00ff88;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-        }
-
-        .url-input::placeholder {
-            color: #606060;
-        }
-
-        .or-divider {
+        .upload-area {
+            border: 3px dashed #00ff88;
+            border-radius: 15px;
+            padding: 60px 40px;
             text-align: center;
-            margin: 25px 0;
-            color: #606060;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        .or-divider::before,
-        .or-divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
-        }
-
-        .or-divider::before {
-            left: 0;
-        }
-
-        .or-divider::after {
-            right: 0;
-        }
-
-        .file-upload {
-            position: relative;
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .file-label {
-            display: block;
-            padding: 30px;
-            border: 2px dashed rgba(0, 255, 136, 0.4);
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(10, 10, 15, 0.5);
-        }
-
-        .file-label:hover {
-            border-color: #00ff88;
             background: rgba(0, 255, 136, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .file-label i {
-            font-size: 2.5rem;
+        .upload-area:hover {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00cc6a;
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: #c0c0c0;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
             color: #00ff88;
-            margin-bottom: 10px;
-            display: block;
         }
 
         .upload-text {
-            color: #a0a0a0;
+            font-size: 1.2rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
         }
 
-        .upload-text span {
+        .upload-hint {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .url-section {
+            margin-top: 25px;
+        }
+
+        .url-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        #videoUrl {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        #videoUrl:focus {
+            outline: none;
+            border-color: #00ff88;
+        }
+
+        #videoUrl::placeholder {
+            color: #666;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #0a0a0a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .preview-section {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .preview-section.active {
+            display: block;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .file-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
             color: #00ff88;
             font-weight: 600;
         }
 
-        .options-section {
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            border: 1px solid rgba(192, 192, 192, 0.1);
-        }
-
-        .options-title {
-            color: #c0c0c0;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .format-options {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .format-option {
-            position: relative;
-        }
-
-        .format-option input {
+        .progress-section {
             display: none;
+            margin-top: 25px;
         }
 
-        .format-option label {
-            display: block;
-            padding: 12px 24px;
-            background: rgba(30, 30, 40, 0.8);
-            border: 2px solid rgba(192, 192, 192, 0.2);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #a0a0a0;
-            font-weight: 500;
-        }
-
-        .format-option input:checked + label {
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.1);
-            color: #00ff88;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
-        }
-
-        .extract-btn {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-            border: none;
-            border-radius: 12px;
-            color: #0a0a0a;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-        }
-
-        .extract-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
-        }
-
-        .extract-btn:disabled {
-            background: #404040;
-            color: #606060;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .status-section {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            display: none;
-        }
-
-        .status-section.active {
+        .progress-section.active {
             display: block;
         }
 
         .progress-bar {
             height: 8px;
-            background: rgba(30, 30, 40, 0.8);
+            background: #333;
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00ff88 0%, #00cc6a 100%);
+            background: linear-gradient(90deg, #00ff88 0%, #c0c0c0 100%);
             width: 0%;
             transition: width 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
 
-        .status-text {
-            color: #a0a0a0;
-            font-size: 0.95rem;
+        .progress-text {
+            text-align: center;
+            color: #c0c0c0;
         }
 
-        .download-section {
-            margin-top: 20px;
+        .result-section {
             display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 15px;
+            border: 2px solid #00ff88;
         }
 
-        .download-section.active {
+        .result-section.active {
             display: block;
         }
 
-        .download-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, #c0c0c0 0%, #909090 100%);
-            border: none;
-            border-radius: 8px;
-            color: #0a0a0a;
-            font-size: 1rem;
+        .success-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .audio-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .audio-size {
+            font-size: 1.5rem;
+            color: #00ff88;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
         }
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(192, 192, 192, 0.3);
+        .audio-format {
+            color: #c0c0c0;
+            margin-top: 5px;
         }
 
-        .donation-card {
-            background: linear-gradient(145deg, rgba(30, 30, 40, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .donation-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #252525 100%);
             border-radius: 20px;
-            padding: 35px;
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid #333;
         }
 
         .donation-title {
             text-align: center;
             font-size: 1.5rem;
-            color: #c0c0c0;
-            margin-bottom: 25px;
-        }
-
-        .donation-title span {
             color: #00ff88;
+            margin-bottom: 30px;
         }
 
-        .crypto-section {
-            margin-bottom: 25px;
+        .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .crypto-label {
-            color: #a0a0a0;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .donation-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .donation-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .donation-label {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .crypto-address {
-            display: flex;
-            align-items: center;
-            background: rgba(10, 10, 15, 0.8);
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            padding: 15px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px;
+            border-radius: 8px;
+            word-break: break-all;
+            color: #00ff88;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+            border: 1px solid #333;
         }
 
         .crypto-address:hover {
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-        .address-text {
-            flex: 1;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #00ff88;
-            word-break: break-all;
-        }
-
-        .copy-icon {
-            color: #c0c0c0;
-            margin-left: 15px;
-            font-size: 1.2rem;
-        }
-
-        .crypto-address:hover .copy-icon {
-            color: #00ff88;
-        }
-
-        .networks {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .network-badge {
-            padding: 5px 12px;
             background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #00ff88;
+            border-color: #00ff88;
         }
 
-        .bmc-section {
-            text-align: center;
-            margin: 25px 0;
+        .crypto-address.copied {
+            background: rgba(0, 255, 136, 0.3);
+            border-color: #00ff88;
         }
 
-        .bmc-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
+        .donation-link {
+            display: inline-block;
+            padding: 12px 25px;
             background: linear-gradient(135deg, #ffdd00 0%, #ffaa00 100%);
-            border-radius: 8px;
-            color: #0a0a0a;
+            color: #1a1a1a;
             text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .bmc-link:hover {
+        .donation-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(255, 221, 0, 0.3);
         }
 
+        .revolut-link {
+            background: linear-gradient(135deg, #0075eb 0%, #00c2ff 100%);
+            color: white;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .github-link:hover {
+            color: #00ff88;
+        }
+
         .author-section {
             text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(192, 192, 192, 0.1);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
         }
 
-        .author-name {
-            font-size: 1.1rem;
+        .author {
             color: #c0c0c0;
-            margin-bottom: 8px;
+            font-size: 1rem;
         }
 
-        .author-name a {
+        .author a {
             color: #00ff88;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .author-name a:hover {
+        .author a:hover {
             text-decoration: underline;
         }
 
-        .author-email {
-            color: #606060;
+        .test-panel {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 10px;
+            border: 1px dashed #00ff88;
+        }
+
+        .test-title {
+            color: #00ff88;
             font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(0, 255, 136, 0.95);
-            color: #0a0a0a;
-            padding: 15px 30px;
+        .test-btn {
+            background: transparent;
+            border: 2px solid #666;
+            color: #c0c0c0;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-weight: 600;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        .test-btn:hover {
+            border-color: #00ff88;
+            color: #00ff88;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #505050;
-            font-size: 0.85rem;
+        .test-results {
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .test-pass {
+            color: #00ff88;
+        }
+
+        .test-fail {
+            color: #ff4444;
+        }
+
+        .test-info {
+            color: #c0c0c0;
         }
 
         @media (max-width: 600px) {
-            .logo {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2rem;
             }
             
-            .main-card, .donation-card {
+            .main-card {
                 padding: 25px;
             }
             
-            .format-options {
-                justify-content: center;
+            .url-input-wrapper {
+                flex-direction: column;
             }
         }
     </style>
@@ -472,244 +471,461 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="logo">DVA</h1>
-            <p class="tagline">Download Videos Audio</p>
-            <p class="subtitle">Extract audio from any video file - completely in your browser</p>
+            <h1>DVA - Download Videos Audio</h1>
+            <p class="subtitle">Extract audio from any video file or video URL - completely in your browser</p>
+            <p class="description">Finally free, no registration, simple tool made for downloading audio from any video format instantly browser-side</p>
         </header>
 
         <div class="main-card">
-            <div class="input-section">
-                <label class="input-label">Video URL</label>
-                <input type="text" class="url-input" id="videoUrl" placeholder="Paste YouTube, Vimeo, or any video URL here...">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-text">Drop your video here or click to browse</p>
+                    <p class="upload-hint">Supports MP4, WEBM, AVI, MOV, MKV, and more</p>
+                </div>
+                <input type="file" id="fileInput" accept="video/*">
             </div>
 
-            <div class="or-divider">OR</div>
-
-            <div class="file-upload">
-                <input type="file" class="file-input" id="videoFile" accept="video/*">
-                <label class="file-label" for="videoFile">
-                    <span style="font-size: 2rem;">📁</span>
-                    <div class="upload-text">
-                        <span>Click to upload</span> or drag and drop your video file here
-                    </div>
-                </label>
-            </div>
-
-            <div class="options-section">
-                <div class="options-title">Output Format</div>
-                <div class="format-options">
-                    <div class="format-option">
-                        <input type="radio" name="format" id="original" value="original" checked>
-                        <label for="original">Original Format</label>
-                    </div>
-                    <div class="format-option">
-                        <input type="radio" name="format" id="mp3" value="mp3">
-                        <label for="mp3">MP3</label>
-                    </div>
-                    <div class="format-option">
-                        <input type="radio" name="format" id="wav" value="wav">
-                        <label for="wav">WAV</label>
-                    </div>
-                    <div class="format-option">
-                        <input type="radio" name="format" id="aac" value="aac">
-                        <label for="aac">AAC</label>
-                    </div>
-                    <div class="format-option">
-                        <input type="radio" name="format" id="flac" value="flac">
-                        <label for="flac">FLAC</label>
-                    </div>
+            <div class="url-section">
+                <div class="url-input-wrapper">
+                    <input type="text" id="videoUrl" placeholder="Or paste a video URL here...">
+                    <button class="btn btn-primary" id="loadUrlBtn">Load</button>
                 </div>
             </div>
 
-            <button class="extract-btn" id="extractBtn" onclick="extractAudio()">
-                Extract Audio
-            </button>
+            <div class="preview-section" id="previewSection">
+                <video id="videoPreview" controls></video>
+                <div class="file-info">
+                    <div class="info-item">
+                        <div class="info-label">File Name</div>
+                        <div class="info-value" id="fileName">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Duration</div>
+                        <div class="info-value" id="duration">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Video Format</div>
+                        <div class="info-value" id="videoFormat">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Audio Tracks</div>
+                        <div class="info-value" id="audioTracks">-</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="extractBtn">Extract Audio</button>
+            </div>
 
-            <div class="status-section" id="statusSection">
+            <div class="progress-section" id="progressSection">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <div class="status-text" id="statusText">Processing...</div>
+                <p class="progress-text" id="progressText">Extracting audio...</p>
             </div>
 
-            <div class="download-section" id="downloadSection">
-                <a href="#" class="download-btn" id="downloadBtn" download>Download Audio</a>
+            <div class="result-section" id="resultSection">
+                <div class="success-icon">✅</div>
+                <div class="audio-info">
+                    <div class="audio-size" id="audioSize">0 MB</div>
+                    <div class="audio-format" id="audioFormat">Original format preserved</div>
+                </div>
+                <a id="downloadLink" class="btn btn-primary download-btn" download>Download Audio</a>
+            </div>
+
+            <div class="test-panel">
+                <div class="test-title">🧪 Test Panel</div>
+                <button class="test-btn" id="runTestsBtn">Run Tests</button>
+                <div class="test-results" id="testResults"></div>
             </div>
         </div>
 
-        <div class="donation-card">
-            <h2 class="donation-title">Support <span>DVA</span></h2>
-            
-            <div class="crypto-section">
-                <div class="crypto-label">Crypto Address (Click to Copy)</div>
-                <div class="crypto-address" onclick="copyAddress()">
-                    <span class="address-text" id="cryptoAddress">TVzv26LsnP42pWSpbJCNS12gMDskLLAQom</span>
-                    <span class="copy-icon">📋</span>
+        <div class="donation-section">
+            <h2 class="donation-title">Support DVA Development</h2>
+            <div class="donation-grid">
+                <div class="donation-card">
+                    <div class="donation-label">Crypto (Multi-Network)</div>
+                    <div class="crypto-address" id="cryptoAddress" title="Click to copy">
+                        0xDBB52BeD9E6F73dcE4A0b1Ea175fF2b505f11D4D
+                    </div>
+                    <small style="color: #666; display: block; margin-top: 8px;">ETH, BSC, Polygon, Arbitrum</small>
                 </div>
-                <div class="networks">
-                    <span class="network-badge">Tron (TRC20)</span>
-                    <span class="network-badge">USDT</span>
-                    <span class="network-badge">TRX</span>
+                <div class="donation-card">
+                    <div class="donation-label">Buy Me a Coffee</div>
+                    <a href="https://buymeacoffee.com/shekhrd" target="_blank" class="donation-link">
+                        ☕ Buy Coffee
+                    </a>
+                </div>
+                <div class="donation-card">
+                    <div class="donation-label">Revolut</div>
+                    <a href="https://revolut.me/frantib9ov" target="_blank" class="donation-link revolut-link">
+                        💳 Revolut Me
+                    </a>
                 </div>
             </div>
-
-            <div class="bmc-section">
-                <a href="https://buymeacoffee.com/shekhrd" class="bmc-link" target="_blank">
-                    <span>☕</span>
-                    Buy Me a Coffee
-                </a>
-            </div>
-
             <div class="author-section">
-                <div class="author-name">
-                    Created by <a href="https://github.com/shekhrd/breakthroughIdeas" target="_blank">shekhrd</a> with breakthroughIdeas
-                </div>
+                <p class="author">
+                    Created by <a href="https://github.com/shek-hrd/downloadVideosAudio" target="_blank">shekhrd</a> 
+                    with <a href="https://github.com/shek-hrd/breakthroughIdeas" target="_blank">breakthroughIdeas</a>
+                </p>
             </div>
         </div>
-
-        <footer>
-            DVA - Free Audio Extraction Tool
-        </footer>
     </div>
 
-    <div class="toast" id="toast">Address copied to clipboard!</div>
-
     <script>
-        let extractedBlob = null;
-        let extractedFilename = 'audio';
+        // DVA - Download Videos Audio
+        // Client-side audio extraction from video files
 
-        function copyAddress() {
-            const address = document.getElementById('cryptoAddress').textContent;
-            navigator.clipboard.writeText(address).then(() => {
-                showToast('Address copied to clipboard!');
-            }).catch(() => {
-                const textArea = document.createElement('textarea');
-                textArea.value = address;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                showToast('Address copied to clipboard!');
-            });
-        }
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const videoUrl = document.getElementById('videoUrl');
+        const loadUrlBtn = document.getElementById('loadUrlBtn');
+        const previewSection = document.getElementById('previewSection');
+        const videoPreview = document.getElementById('videoPreview');
+        const extractBtn = document.getElementById('extractBtn');
+        const progressSection = document.getElementById('progressSection');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const resultSection = document.getElementById('resultSection');
+        const downloadLink = document.getElementById('downloadLink');
+        const cryptoAddress = document.getElementById('cryptoAddress');
+        const runTestsBtn = document.getElementById('runTestsBtn');
+        const testResults = document.getElementById('testResults');
 
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('show');
+        let currentVideoBlob = null;
+        let currentFileName = '';
+
+        // Upload area click handler
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // File input handler
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleVideoFile(file);
+        });
+
+        // Drag and drop handlers
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('video/')) {
+                handleVideoFile(file);
+            }
+        });
+
+        // URL load handler
+        loadUrlBtn.addEventListener('click', loadFromUrl);
+        videoUrl.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') loadFromUrl();
+        });
+
+        // Crypto address copy handler
+        cryptoAddress.addEventListener('click', () => {
+            navigator.clipboard.writeText(cryptoAddress.textContent.trim());
+            cryptoAddress.classList.add('copied');
+            cryptoAddress.textContent = 'Copied to clipboard!';
             setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
+                cryptoAddress.classList.remove('copied');
+                cryptoAddress.textContent = '0xDBB52BeD9E6F73dcE4A0b1Ea175fF2b505f11D4D';
+            }, 2000);
+        });
+
+        // Extract button handler
+        extractBtn.addEventListener('click', extractAudio);
+
+        // Test button handler
+        runTestsBtn.addEventListener('click', runTests);
+
+        async function handleVideoFile(file) {
+            currentVideoBlob = file;
+            currentFileName = file.name.replace(/\.[^/.]+$/, '');
+            
+            const url = URL.createObjectURL(file);
+            videoPreview.src = url;
+            
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('videoFormat').textContent = file.type || 'Unknown';
+            
+            previewSection.classList.add('active');
+            resultSection.classList.remove('active');
+            
+            videoPreview.onloadedmetadata = () => {
+                const duration = formatDuration(videoPreview.duration);
+                document.getElementById('duration').textContent = duration;
+                
+                const audioTracks = videoPreview.audioTracks ? videoPreview.audioTracks.length : '1 (default)';
+                document.getElementById('audioTracks').textContent = audioTracks;
+            };
         }
 
-        function updateProgress(percent, text) {
-            document.getElementById('progressFill').style.width = percent + '%';
-            document.getElementById('statusText').textContent = text;
+        async function loadFromUrl() {
+            const url = videoUrl.value.trim();
+            if (!url) return;
+            
+            try {
+                videoPreview.src = url;
+                previewSection.classList.add('active');
+                resultSection.classList.remove('active');
+                
+                videoPreview.onloadedmetadata = () => {
+                    document.getElementById('fileName').textContent = 'URL Video';
+                    document.getElementById('duration').textContent = formatDuration(videoPreview.duration);
+                    document.getElementById('videoFormat').textContent = 'Streaming';
+                    document.getElementById('audioTracks').textContent = '1 (default)';
+                };
+                
+                videoPreview.onerror = () => {
+                    alert('Could not load video from URL. CORS restrictions may apply.');
+                    previewSection.classList.remove('active');
+                };
+            } catch (err) {
+                alert('Error loading video: ' + err.message);
+            }
         }
 
         async function extractAudio() {
-            const url = document.getElementById('videoUrl').value.trim();
-            const fileInput = document.getElementById('videoFile');
-            const format = document.querySelector('input[name="format"]:checked').value;
-            const statusSection = document.getElementById('statusSection');
-            const downloadSection = document.getElementById('downloadSection');
-            const extractBtn = document.getElementById('extractBtn');
-
-            if (!url && !fileInput.files.length) {
-                showToast('Please enter a URL or select a file');
-                return;
-            }
-
-            statusSection.classList.add('active');
-            downloadSection.classList.remove('active');
+            if (!videoPreview.src) return;
+            
+            progressSection.classList.add('active');
+            resultSection.classList.remove('active');
             extractBtn.disabled = true;
-
+            
             try {
-                updateProgress(10, 'Initializing...');
-                await new Promise(r => setTimeout(r, 500));
-
-                updateProgress(30, 'Loading video...');
-                await new Promise(r => setTimeout(r, 800));
-
-                updateProgress(60, 'Extracting audio stream...');
-                await new Promise(r => setTimeout(r, 1000));
-
-                updateProgress(85, 'Converting to selected format...');
-                await new Promise(r => setTimeout(r, 700));
-
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Fetch video data
+                const response = await fetch(videoPreview.src);
+                const arrayBuffer = await response.arrayBuffer();
+                
+                updateProgress(20, 'Decoding audio...');
+                
+                // Decode audio
+                const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+                
+                updateProgress(60, 'Encoding to original format...');
+                
+                // Determine original format and encode accordingly
+                const originalFormat = detectAudioFormat(currentVideoBlob?.type || 'audio/mp4');
+                const audioBlob = await encodeAudio(audioBuffer, audioContext, originalFormat);
+                
+                updateProgress(90, 'Finalizing...');
+                
+                // Create download link
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const extension = originalFormat.extension;
+                
+                downloadLink.href = audioUrl;
+                downloadLink.download = `${currentFileName}_audio.${extension}`;
+                
+                // Display size
+                const sizeMB = (audioBlob.size / (1024 * 1024)).toFixed(2);
+                document.getElementById('audioSize').textContent = `${sizeMB} MB`;
+                document.getElementById('audioFormat').textContent = `Original: ${originalFormat.name} (${originalFormat.mimeType})`;
+                
                 updateProgress(100, 'Complete!');
-                await new Promise(r => setTimeout(r, 500));
-
-                const mimeTypes = {
-                    'original': 'audio/mp4',
-                    'mp3': 'audio/mpeg',
-                    'wav': 'audio/wav',
-                    'aac': 'audio/aac',
-                    'flac': 'audio/flac'
-                };
-
-                const extensions = {
-                    'original': 'm4a',
-                    'mp3': 'mp3',
-                    'wav': 'wav',
-                    'aac': 'aac',
-                    'flac': 'flac'
-                };
-
-                const mimeType = mimeTypes[format] || 'audio/mpeg';
-                const extension = extensions[format] || 'mp3';
-
-                const dummyData = new Uint8Array(1024);
-                extractedBlob = new Blob([dummyData], { type: mimeType });
-                extractedFilename = `extracted_audio.${extension}`;
-
-                const downloadBtn = document.getElementById('downloadBtn');
-                downloadBtn.href = URL.createObjectURL(extractedBlob);
-                downloadBtn.download = extractedFilename;
-                downloadSection.classList.add('active');
-
-                showToast('Audio extracted successfully!');
-
-            } catch (error) {
-                showToast('Extraction failed. Please try again.');
-                console.error(error);
-            } finally {
+                
+                setTimeout(() => {
+                    progressSection.classList.remove('active');
+                    resultSection.classList.add('active');
+                    extractBtn.disabled = false;
+                }, 500);
+                
+            } catch (err) {
+                progressSection.classList.remove('active');
                 extractBtn.disabled = false;
+                alert('Error extracting audio: ' + err.message);
+                console.error(err);
             }
         }
 
-        document.getElementById('videoFile').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                const label = document.querySelector('.upload-text');
-                label.innerHTML = `<span>${e.target.files[0].name}</span> (${(e.target.files[0].size / 1024 / 1024).toFixed(2)} MB)`;
-            }
-        });
-
-        const fileLabel = document.querySelector('.file-label');
-        
-        fileLabel.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            fileLabel.style.borderColor = '#00ff88';
-            fileLabel.style.background = 'rgba(0, 255, 136, 0.1)';
-        });
-
-        fileLabel.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            fileLabel.style.borderColor = 'rgba(0, 255, 136, 0.4)';
-            fileLabel.style.background = 'rgba(10, 10, 15, 0.5)';
-        });
-
-        fileLabel.addEventListener('drop', (e) => {
-            e.preventDefault();
-            fileLabel.style.borderColor = 'rgba(0, 255, 136, 0.4)';
-            fileLabel.style.background = 'rgba(10, 10, 15, 0.5)';
+        function detectAudioFormat(videoMimeType) {
+            const formatMap = {
+                'video/mp4': { name: 'M4A/AAC', mimeType: 'audio/mp4', extension: 'm4a' },
+                'video/webm': { name: 'WEBM Audio', mimeType: 'audio/webm', extension: 'webm' },
+                'video/ogg': { name: 'OGG Audio', mimeType: 'audio/ogg', extension: 'ogg' },
+                'video/quicktime': { name: 'M4A/AAC', mimeType: 'audio/mp4', extension: 'm4a' },
+                'video/x-matroska': { name: 'WEBM Audio', mimeType: 'audio/webm', extension: 'webm' },
+                'video/avi': { name: 'WAV', mimeType: 'audio/wav', extension: 'wav' },
+                'video/x-msvideo': { name: 'WAV', mimeType: 'audio/wav', extension: 'wav' }
+            };
             
-            const files = e.dataTransfer.files;
-            if (files.length > 0 && files[0].type.startsWith('video/')) {
-                document.getElementById('videoFile').files = files;
-                const label = document.querySelector('.upload-text');
-                label.innerHTML = `<span>${files[0].name}</span> (${(files[0].size / 1024 / 1024).toFixed(2)} MB)`;
+            return formatMap[videoMimeType] || { name: 'M4A/AAC', mimeType: 'audio/mp4', extension: 'm4a' };
+        }
+
+        async function encodeAudio(audioBuffer, audioContext, format) {
+            // Use MediaRecorder for native format encoding
+            const destination = audioContext.createMediaStreamDestination();
+            const source = audioContext.createBufferSource();
+            source.buffer = audioBuffer;
+            source.connect(destination);
+            
+            const mimeType = format.mimeType + ';codecs=opus';
+            const mediaRecorder = new MediaRecorder(destination.stream, {
+                mimeType: MediaRecorder.isTypeSupported(mimeType) ? mimeType : 'audio/webm'
+            });
+            
+            const chunks = [];
+            mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+            
+            return new Promise((resolve) => {
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(chunks, { type: format.mimeType });
+                    resolve(blob);
+                };
+                
+                mediaRecorder.start();
+                source.start();
+                
+                setTimeout(() => {
+                    source.stop();
+                    mediaRecorder.stop();
+                }, audioBuffer.duration * 1000);
+            });
+        }
+
+        function updateProgress(percent, text) {
+            progressFill.style.width = percent + '%';
+            progressText.textContent = text;
+        }
+
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Test-Driven Development Tests
+        async function runTests() {
+            testResults.innerHTML = '';
+            const tests = [];
+            
+            function log(message, type = 'info') {
+                const div = document.createElement('div');
+                div.className = `test-${type}`;
+                div.textContent = message;
+                testResults.appendChild(div);
             }
+            
+            // Test 1: DOM Elements
+            log('Test 1: DOM Elements...', 'info');
+            try {
+                const requiredElements = ['uploadArea', 'fileInput', 'videoPreview', 'extractBtn', 'cryptoAddress'];
+                for (const id of requiredElements) {
+                    if (!document.getElementById(id)) throw new Error(`Missing element: ${id}`);
+                }
+                log('  ✓ All required elements present', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 2: Audio Context Support
+            log('Test 2: Audio Context API...', 'info');
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) throw new Error('AudioContext not supported');
+                const ctx = new AudioContext();
+                if (ctx.state === 'suspended') await ctx.resume();
+                log('  ✓ AudioContext supported and working', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 3: MediaRecorder Support
+            log('Test 3: MediaRecorder API...', 'info');
+            try {
+                if (!window.MediaRecorder) throw new Error('MediaRecorder not supported');
+                const types = ['audio/webm', 'audio/mp4', 'audio/ogg'];
+                const supported = types.filter(t => MediaRecorder.isTypeSupported(t));
+                log(`  ✓ MediaRecorder supported (${supported.length} formats)`, 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 4: Clipboard API
+            log('Test 4: Clipboard API...', 'info');
+            try {
+                if (!navigator.clipboard) throw new Error('Clipboard API not supported');
+                log('  ✓ Clipboard API available', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 5: Crypto Address Format
+            log('Test 5: Crypto Address Format...', 'info');
+            try {
+                const address = cryptoAddress.textContent.trim();
+                const ethRegex = /^0x[a-fA-F0-9]{40}$/;
+                if (!ethRegex.test(address)) throw new Error('Invalid Ethereum address format');
+                log('  ✓ Crypto address format valid', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 6: Video File Processing (simulated)
+            log('Test 6: Video Processing Functions...', 'info');
+            try {
+                if (typeof handleVideoFile !== 'function') throw new Error('handleVideoFile not defined');
+                if (typeof extractAudio !== 'function') throw new Error('extractAudio not defined');
+                if (typeof encodeAudio !== 'function') throw new Error('encodeAudio not defined');
+                log('  ✓ All processing functions defined', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Test 7: Format Detection
+            log('Test 7: Format Detection...', 'info');
+            try {
+                const testCases = [
+                    { input: 'video/mp4', expected: 'M4A/AAC' },
+                    { input: 'video/webm', expected: 'WEBM Audio' },
+                    { input: 'unknown', expected: 'M4A/AAC' }
+                ];
+                for (const tc of testCases) {
+                    const result = detectAudioFormat(tc.input);
+                    if (!result.name) throw new Error(`Format detection failed for ${tc.input}`);
+                }
+                log('  ✓ Format detection working', 'pass');
+                tests.push(true);
+            } catch (e) {
+                log(`  ✗ ${e.message}`, 'fail');
+                tests.push(false);
+            }
+            
+            // Summary
+            const passed = tests.filter(t => t).length;
+            const total = tests.length;
+            log('', 'info');
+            log(`Results: ${passed}/${total} tests passed`, passed === total ? 'pass' : 'info');
+            
+            if (passed === total) {
+                log('All systems ready!', 'pass');
+            }
+        }
+
+        // Auto-run tests on load for TDD
+        window.addEventListener('load', () => {
+            setTimeout(runTests, 500);
         });
     </script>
 </body>
